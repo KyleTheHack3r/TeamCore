@@ -11,8 +11,6 @@ class MainClass extends PluginBase{
 		$this->getLogger()->info("TeamCore has loaded.");
 	}
 	public function onEnable(){
-	  $leave_team = 0;
-	  $teams = array("team1", "team1", "team3");
 		$this->getLogger()->info("TeamCore has been enabled.");
     }
 	public function onDisable(){
@@ -21,13 +19,13 @@ class MainClass extends PluginBase{
 	public function onCommand(CommandSender $sender, Command $command, $label, array $args){
 		switch($command->getName()){
 			case "team":
-		    if ($leave_team == 1){
-		      // do something
-		    }
-				$sender->sendMessage("-----");
-				$random_team=array_rand($teams,1);
-				// this dosen't work yet :P
-				$sender->sendMessage("You are on " . $random_team .);
+                    $teams = array('red', 'blue');
+                    $team = array_rand($teams);
+      
+		    
+                    $sender->sendMessage("-----");
+		    $sender->sendMessage("You are on the " .   $teams[$team] . " team.");
+                    $sender->sendMessage("-----");
 				return true;
 			default:
 				return false;
@@ -41,6 +39,6 @@ class MainClass extends PluginBase{
 	 */
 	 // leave team on death
 	public function onSpawn(PlayerRespawnEvent $event){
-		$leave_team = 1;
+		
 	}
 }
