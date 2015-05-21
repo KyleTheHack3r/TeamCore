@@ -9,8 +9,6 @@ use pocketmine\utils\TextFormat;
 
 class MainClass extends PluginBase{
 	public function onLoad(){
-                $redTeam = 0;
-                $blueTeam = 0;
 		$this->getLogger()->info("TeamCore has loaded.");
 	}
 	public function onEnable(){
@@ -26,21 +24,15 @@ class MainClass extends PluginBase{
                     $team = array_rand($teams);
                     
 
-                    // for debug or config
-                    if ($teams[$team] == "red"){
-                    $redTeam = $redTeam+1;
-                    }
-		    
-
-                    if ($teams[$team] == "blue"){
-                    $blueTeam = $blueTeam+1;
-                    }
-
-
+                    
+                    $this->getLogger()->info("A team has been joined.");
                     $sender->sendMessage("-----");
-		    $sender->sendMessage("You are on the " .   $teams[$team] . " team.");
-                    $sender->sendMessage("Debug - Red: " . $redTeam . " Blue: " . $blueTeam . " works");
+		    $sender->sendMessage("You are on the " . $teams[$team] . " team.");
                     $sender->sendMessage("-----");
+           
+                    // set nametag
+                    $name = $sender->getName();
+                    $sender->setNameTag("[ $teams[$team] ] $name");
 				return true;
 	    	default:
 				return false;
