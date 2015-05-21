@@ -28,12 +28,12 @@ class MainClass extends PluginBase{
 
                     // for debug or config
                     if ($teams[$team] == "red"){
-                    $redTeam = $redTeam+1
+                    $redTeam = $redTeam+1;
                     }
 		    
 
                     if ($teams[$team] == "blue"){
-                    $blueTeam = $blueTeam+1
+                    $blueTeam = $blueTeam+1;
                     }
 
 
