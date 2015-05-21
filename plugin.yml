@@ -1,0 +1,11 @@
+name: TeamCore
+main: TC\MainClass
+version: 1.0.0
+api: [1.0.0]
+author: KyleTheHack3r
+description: Example plugin using vars and arrays
+commands:
+ team:
+  description: Enter a team
+  usage: "Usage: /team"
+  permission: teamcore.command.team
