@@ -22,7 +22,18 @@ class MainClass extends PluginBase{
 			case "team":
                     $teams = array('red', 'blue');
                     $team = array_rand($teams);
-                    
+
+                    /*
+
+gameStatus 0 = error / not defined (used to cancel everything or on a new game)
+gameStatus 1 = players are at team spawnpoints (>= 1 player)
+gameStatus 2 = both teams are full (automatically move players so the team's are equal)
+gameStatus 3 = game has started (allow moving & placing blocks)
+gameStatus 4 = end of game (calculate the winning team and give coins)
+gameStatus 5 = reset everything
+
+                    */
+                    $gameStatus = 0;
 
                     
                     $this->getLogger()->info("A team has been joined.");
